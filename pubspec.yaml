@@ -1,6 +1,6 @@
 name: flutter_screen_controller
 description: A view-controller pattern implementation to separate UI from logic
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/Mezatsong/flutter_screen_controller
 homepage: https://github.com/Mezatsong/flutter_screen_controller
 
