@@ -20,8 +20,12 @@ mixin DataScreenController<T> on ScreenController {
     refresh();
   }
 
+  /// A boolean to indicate if there is error
   bool get hasError => error != null;
 
+  /// Call this to trigger data fetching again, if you passe [selence] to true,
+  /// then isLoading variable will not get update and the function will just update
+  /// data when fetch is complete
   void refresh({silence = false}) {
     if (!isLoading || error != null) {
       isLoading = true;
@@ -39,7 +43,9 @@ mixin DataScreenController<T> on ScreenController {
     });
   }
 
+  /// Call refresh with selence set to true
   void silentRefresh() => refresh(silence: true);
 
+  /// You must override this method to fetch your screen data
   Future<T> fetchData();
 }

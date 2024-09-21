@@ -18,6 +18,7 @@ abstract class ScreenController {
 
   const ScreenController(this.state);
 
+  /// Get the underlaying StatefullWidget context (state.context)
   BuildContext get context => state.context;
 
   /// Called immediately after the widget is allocated in memory.
@@ -36,6 +37,7 @@ abstract class ScreenController {
   /// Might be useful as well to persist some data on disk.
   void onDispose() {}
 
+  /// Call this method to update the UI, it's same as setState
   @protected
   bool updateUI([void Function()? fn]) => state.updateUI(fn);
 }
