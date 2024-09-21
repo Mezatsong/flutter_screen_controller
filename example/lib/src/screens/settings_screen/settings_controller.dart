@@ -9,7 +9,6 @@ import 'settings_service.dart';
 /// Controllers glue Data Services to Flutter Widgets. The SettingsController
 /// uses the SettingsService to store and retrieve user settings.
 class SettingsController extends ScreenController {
-  
   SettingsController(super.state);
 
   // Make SettingsService a private variable so it is not used directly.
@@ -22,14 +21,12 @@ class SettingsController extends ScreenController {
   // Allow Widgets to read the user's preferred ThemeMode.
   ThemeMode get themeMode => _themeMode;
 
-  
   // In this method perform early initializations that do not need UI update
   @override
   void onInit() {
     _settingsService = SettingsService();
   }
 
-  
   // Perform here initializations that will update the UI
   @override
   void onReady() {
