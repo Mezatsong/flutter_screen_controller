@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Initiate package test
+name: Run tests
 
 on:
   push:
@@ -14,7 +14,7 @@ on:
 jobs:
   run_test:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
 
