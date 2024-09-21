@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-# 1. Analyze code
+# 1. Format code
+printf "\e[33;1m%s\e[0m\n" 'Running the Flutter formatter'
+dart format .
+printf "\e[33;1m%s\e[0m\n" 'Finished running the Flutter formatter'
+
+# 2. Analyze code
 printf "\e[33;1m%s\e[0m\n" 'Running the Flutter analyzer'
 flutter analyze
 if [ $? -ne 0 ]; then
@@ -8,8 +13,3 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 printf "\e[33;1m%s\e[0m\n" 'Finished running the Flutter analyzer'
-
-# 2. Format code
-printf "\e[33;1m%s\e[0m\n" 'Running the Flutter formatter'
-dart format .
-printf "\e[33;1m%s\e[0m\n" 'Finished running the Flutter formatter'

@@ -1,11 +1,11 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Mezatsong/flutter_screen_controller/main/demo.gif?sanitize=true"/>
+  <img src="https://raw.githubusercontent.com/Mezatsong/flutter_screen_controller/main/demo.gif?sanitize=true"/>
 </p>
 <h1 align="center"> 
-    Easy ways to separe logic from UI in single screen
+  Easy ways to separe logic from UI in single screen
 </h1>
 
-<u>MOTIVATION</u>: We have setState with StatefullWidget but as a drawback, the logic of our screen is mixed with the presentation code, this package is here to provide a solution to this problem, giving the ability to separate the logic of the UI for each screen.
+**MOTIVATION:** We have setState with StatefullWidget but as a drawback, the logic of our screen is mixed with the presentation code, this package is here to provide a solution to this problem, giving the ability to separate the logic of the UI for each screen.
 
 ## 🎖 Features
 
@@ -26,8 +26,6 @@ Additionnaly, you have these benefits:
 - ⚡ No constraints, there's nothing to stop you using StatefullWidget and ScreenController at the same time.
 - 🚀 Some predefined controllers are already available, like the one that does what's on the demo.and ScreenController at the same time.
 - 🛡️ Null safety
-
-Translated with DeepL.com (free version)
 
 ## 🔩 Installation
 
@@ -168,9 +166,9 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-[**Full project example**](https://github.com/Mezatsong/flutter_screen_controller/blob/main/example)
-
 ```
+
+[**Full project example**](https://github.com/Mezatsong/flutter_screen_controller/blob/main/example)
 
 ## 🐛 Bugs/Requests
 

@@ -1,9 +1,8 @@
 name: flutter_screen_controller
 description: A view-controller pattern implementation to separate UI from logic
 version: 0.0.1
+repository: https://github.com/Mezatsong/flutter_screen_controller
 homepage: https://github.com/Mezatsong/flutter_screen_controller
-
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
   sdk: ">=2.17.0 <4.0.0"

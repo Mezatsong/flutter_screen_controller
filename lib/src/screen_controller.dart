@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart' show protected, BuildContext;
 import 'screen_controller_builder.dart';
 
+/// Abstract base class for controller, all screen controller must inerhit this class
+/// A wrapper widget (ScreenControllerBuilder) is required for controller to work
+/// here is how to use:
+/// ```dart
+/// ScreenControllerBuilder<ConcretExampleScreenController>(
+/// 	create: (state) => ConcretExampleScreenController(state),
+/// 	builder: (BuildContext context, ConcretExampleScreenController controller) {
+///   	return Text(controller.text); // or anything you want
+///   }
+/// )
+/// ```
 abstract class ScreenController {
   @protected
   final ScreenControllerBuilderState state;

@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'screen_controller.dart';
 
+/// A wrapper widget for the controllable part of your screen
+/// This class will create a statefullWidget and passe state to the
+/// controller, so that the controller will have ability to update the UI
+/// This class is also responsible to call controller onInit, onReady
+/// and onDispose methods.
+/// The controller is unuseful without this class, here is how to use:
+/// ```dart
+/// ScreenControllerBuilder<ControllerClassName>(
+/// 	create: (state) => ControllerClassName(state),
+/// 	builder: (BuildContext context, ControllerClassName controller) {
+///   	return Text(controller.text); // or anything you want
+///   }
+/// )
+/// ```
 class ScreenControllerBuilder<T extends ScreenController>
     extends StatefulWidget {
   final T Function(ScreenControllerBuilderState<T>) create;
