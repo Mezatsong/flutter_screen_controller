@@ -13,6 +13,7 @@ import 'screen_controller_builder.dart';
 /// )
 /// ```
 abstract class ScreenController {
+  /// The state instance of underlaying StatefullWidget, controller need this to update UI
   @protected
   final ScreenControllerBuilderState state;
 
