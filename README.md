@@ -24,7 +24,7 @@ Additionnaly, you have these benefits:
 - 🔌 You can inherit logic from another screen
 - 💾 You can make logic parts that you reuse in your screens
 - ⚡ No constraints, there's nothing to stop you using StatefullWidget and ScreenController at the same time.
-- 🚀 Some predefined controllers are already available, like the one that does what's on the demo.and ScreenController at the same time.
+- 🚀 Some predefined controllers are already available, like the one that does what's on the demo.
 - 🛡️ Null safety
 
 ## 🔩 Installation

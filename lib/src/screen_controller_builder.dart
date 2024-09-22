@@ -17,24 +17,65 @@ import 'screen_controller.dart';
 /// ```
 class ScreenControllerBuilder<T extends ScreenController>
     extends StatefulWidget {
-  final T Function(ScreenControllerBuilderState<T>) create;
-  final Widget Function(BuildContext, T) builder;
-
   const ScreenControllerBuilder({
     required this.create,
     required this.builder,
     super.key,
   });
 
+  /// Controller factory, this function is responsible for controller creation
+  /// if you have something to pass to your controller constructor, then do it
+  /// in that method, all contructor need state and this factory function already
+  /// give you that state, here are some examples:
+  ///
+  /// In case your controller do not take any additional parameter
+  /// ```dart
+  /// ScreenControllerBuilder(
+  /// 	create: ExampleScreenController.new
+  /// 	builder: ...
+  /// )
+  /// ```
+  ///
+  /// In case your controller take additionals parameters
+  /// ```dart
+  /// ScreenControllerBuilder<ExampleScreenController>(
+  /// 	create: (state) => ExampleScreenController(state, id: widget.articleId),
+  /// 	builder: ...
+  /// )
+  /// ```
+  final T Function(ScreenControllerBuilderState<T>) create;
+
+  /// The builder function to render the part of your screen that need control,
+  /// this function expose BuildContext and Controller that you created.
+  /// Usage example:
+  /// ```dart
+  /// ScreenControllerBuilder(
+  /// 	create: ExampleScreenController.new
+  /// 	builder: (context, controller) {
+  /// 		if (controller.isLoading) return CircularProgressIndicator();
+  /// 		if (controller.hasError) return Text('An error occur');
+  /// 		return ListView.builder(
+  /// 			itemCount: controller.data.length,
+  /// 			itemBuilder: ...
+  /// 		);
+  /// 	},
+  /// )
+  /// ```
+  final Widget Function(BuildContext, T) builder;
+
   @override
   State<StatefulWidget> createState() => ScreenControllerBuilderState<T>();
 }
 
+/// Normaly you do not need this, else you want to customize controller behavior
+@protected
 class ScreenControllerBuilderState<T extends ScreenController>
     extends State<ScreenControllerBuilder<T>> {
+  /// The controller instance, it must be inherited fromm ScreenController
   late final T controller;
 
   @override
+  @protected
   void initState() {
     super.initState();
     controller = widget.create(this);
@@ -43,6 +84,7 @@ class ScreenControllerBuilderState<T extends ScreenController>
   }
 
   @override
+  @protected
   void dispose() {
     controller.onDispose();
     super.dispose();
@@ -64,5 +106,6 @@ class ScreenControllerBuilderState<T extends ScreenController>
   }
 
   @override
+  @protected
   Widget build(BuildContext context) => widget.builder(context, controller);
 }

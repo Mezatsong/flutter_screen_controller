@@ -1,3 +1,4 @@
+/// A view-controller pattern implementation to separate UI from logic
 library flutter_screen_controller;
 
 // Core library classes
