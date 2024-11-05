@@ -1,3 +1,7 @@
+## 0.0.5+1
+
+- Rewrite docs with refreshUI instead of updateUI
+
 ## 0.0.5
 
 - Hide life cycle hook method and other stuff from class by mark them as protected (onInit, onReady, onDispose, context, etc)
