@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart' show protected;
+
 import '../screen_controller.dart';
 
 /// This mixin provide a capability to perform data load logic.
@@ -16,6 +18,7 @@ mixin DataScreenController<T> on ScreenController {
   dynamic error;
 
   @override
+  @protected
   void onInit() {
     refresh();
   }

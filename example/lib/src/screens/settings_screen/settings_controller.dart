@@ -40,7 +40,7 @@ class SettingsController extends ScreenController {
     _themeMode = await _settingsService.themeMode();
 
     // Important! Inform screen a change has occurred.
-    updateUI();
+    refreshUI();
   }
 
   /// Update and persist the ThemeMode based on the user's selection.
@@ -54,7 +54,7 @@ class SettingsController extends ScreenController {
     _themeMode = newThemeMode;
 
     // Important! Inform screen a change has occurred.
-    updateUI();
+    refreshUI();
 
     // Persist the changes to a local database or the internet using the
     // SettingService.

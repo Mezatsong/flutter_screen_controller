@@ -56,7 +56,7 @@ class SampleItemDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Item Details'),
       ),
-      body: ScreenControllerBuilder<_SampleItemDetailsScreenController>(
+      body: ScreenControllerBuilder(
         create: (state) => _SampleItemDetailsScreenController(state, id),
         builder: (context, ctrl) {
           if (ctrl.isLoading) {
@@ -133,7 +133,7 @@ class SettingsController extends ScreenController {
     _themeMode = await _settingsService.themeMode();
 
     // Important! Inform screen a change has occurred.
-    updateUI();
+    refreshUI();
   }
 
   /// Update and persist the ThemeMode based on the user's selection.
@@ -147,7 +147,7 @@ class SettingsController extends ScreenController {
     _themeMode = newThemeMode;
 
     // Important! Inform screen a change has occurred.
-    updateUI();
+    refreshUI();
 
     // Persist the changes to a local database or the internet using the
     // SettingService.
@@ -167,9 +167,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
+      appBar: AppBar(title: const Text('Settings')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         // Glue the SettingsController to the theme selection DropdownButton.
@@ -236,9 +234,7 @@ class _SampleItemListScreenController
 
 /// Displays a list of SampleItems.
 class SampleItemListScreen extends StatelessWidget {
-  const SampleItemListScreen({
-    super.key,
-  });
+  const SampleItemListScreen({super.key});
 
   static const routeName = '/';
 

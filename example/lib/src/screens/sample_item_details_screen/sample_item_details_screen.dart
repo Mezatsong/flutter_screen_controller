@@ -18,7 +18,7 @@ class SampleItemDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Item Details'),
       ),
-      body: ScreenControllerBuilder<_SampleItemDetailsScreenController>(
+      body: ScreenControllerBuilder(
         create: (state) => _SampleItemDetailsScreenController(state, id),
         builder: (context, ctrl) {
           if (ctrl.isLoading) {

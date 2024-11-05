@@ -43,7 +43,7 @@ class ScreenControllerBuilder<T extends ScreenController>
   /// 	builder: ...
   /// )
   /// ```
-  final T Function(ScreenControllerBuilderState<T>) create;
+  final T Function(ScreenControllerBuilderState) create;
 
   /// The builder function to render the part of your screen that need control,
   /// this function expose BuildContext and Controller that you created.
@@ -64,7 +64,9 @@ class ScreenControllerBuilder<T extends ScreenController>
   final Widget Function(BuildContext, T) builder;
 
   @override
-  State<StatefulWidget> createState() => ScreenControllerBuilderState<T>();
+  ScreenControllerBuilderState createState() {
+    return ScreenControllerBuilderState<T>();
+  }
 }
 
 /// Normaly you do not need this, else you want to customize controller behavior
@@ -79,26 +81,25 @@ class ScreenControllerBuilderState<T extends ScreenController>
   void initState() {
     super.initState();
     controller = widget.create(this);
+    // ignore: invalid_use_of_protected_member
     controller.onInit();
+    // ignore: invalid_use_of_protected_member
     WidgetsBinding.instance.addPostFrameCallback((_) => controller.onReady());
   }
 
   @override
   @protected
   void dispose() {
+    // ignore: invalid_use_of_protected_member
     controller.onDispose();
     super.dispose();
   }
 
   /// Call setState if mounted
   /// return true if setState was called
-  bool updateUI([void Function()? fn]) {
+  bool safeSetState([void Function()? fn]) {
     if (mounted) {
-      if (fn != null) {
-        setState(fn);
-      } else {
-        setState(() {});
-      }
+      setState(fn != null ? fn : () {});
       return true;
     } else {
       return false;

@@ -20,15 +20,18 @@ abstract class ScreenController {
   const ScreenController(this.state);
 
   /// Get the underlaying StatefullWidget context (state.context)
+  @protected
   BuildContext get context => state.context;
 
   /// Called immediately after the widget is allocated in memory.
   /// You might use this to initialize something for the controller.
+  @protected
   void onInit() {}
 
   /// Called 1 frame after onInit(). It is the perfect place to enter
   /// navigation events, like snackbar, dialogs, or a new route, or
   /// async request.
+  @protected
   void onReady() {}
 
   /// [onDispose] might be used to dispose resources used by the controller.
@@ -36,9 +39,20 @@ abstract class ScreenController {
   /// Or dispose objects that can potentially create some memory leaks,
   /// like TextEditingControllers, AnimationControllers.
   /// Might be useful as well to persist some data on disk.
+  @protected
   void onDispose() {}
 
   /// Call this method to update the UI, it's same as setState
+  /// Return true if UI was refreshed, false otherwise (mounted is false by ex.)
   @protected
-  bool updateUI([void Function()? fn]) => state.updateUI(fn);
+  bool updateUI([void Function()? fn]) => state.safeSetState(fn);
+
+  /// Call this method to update the UI, it's same as setState(() {}).
+  /// Return true if UI was refreshed, false otherwise (mounted is false by ex.)
+  @protected
+  bool refreshUI() => updateUI();
+
+  @protected
+  @override
+  String toString() => super.toString();
 }

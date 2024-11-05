@@ -1,3 +1,9 @@
+## 0.0.5
+
+- Hide life cycle hook method and other stuff from class by mark them as protected (onInit, onReady, onDispose, context, etc)
+- Add refreshUI a bit different than updateUI
+- Eliminate the need to specify controller type in ScreenControllerBuilder when controller take parameters other than state
+
 ## 0.0.4
 
 - Improve documentation (flutter_screen_controller.dart)
