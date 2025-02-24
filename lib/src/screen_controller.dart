@@ -25,7 +25,7 @@ abstract class ScreenController {
 
   /// Get the underlaying StatefullWidget mounted (state.mounted)
   @protected
-  BuildContext get mounted => state.mounted;
+  bool get mounted => state.mounted;
 
   /// Called immediately after the widget is allocated in memory.
   /// You might use this to initialize something for the controller.
