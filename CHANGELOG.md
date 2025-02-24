@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Fix "Null check operator used on a null value" error when calling `context.mounted` sometimes; fixed by adding mounted attribute directly in the controller
+
 ## 0.0.5+1
 
 - Rewrite docs with refreshUI instead of updateUI
